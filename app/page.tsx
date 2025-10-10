@@ -53,12 +53,12 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Right: two flyers, close together and slightly tilted */}
+          {/* Right visuals: two tilted flyers on all breakpoints, mobile-safe sizing */}
           <div className="relative w-full">
-            <div className="relative mx-auto w-full max-w-3xl aspect-[4/3]">
+            <div className="relative mx-auto w-full max-w-sm sm:max-w-md md:max-w-3xl aspect-[4/3]">
               {/* Left flyer */}
-                <div className="absolute z-10 left-[6%] top-1/2 -translate-y-1/2 w-[56%] rotate-[-15deg]">
-                  <div className="relative aspect-[3/4] rounded-lg border border-neutral-200 overflow-hidden bg-white shadow-xl drop-shadow-lg">
+              <div className="absolute z-10 left-[2%] md:left-[6%] top-1/2 -translate-y-1/2 w-[56%] rotate-[-12deg] md:rotate-[-15deg]">
+                <div className="relative aspect-[3/4] rounded-lg border border-neutral-200 overflow-hidden bg-white shadow-xl drop-shadow-lg">
                   <Image
                     src="/img/flyer1.png"
                     alt="Flyer 1"
@@ -71,8 +71,8 @@ export default function Home() {
               </div>
 
               {/* Right flyer */}
-                <div className="absolute z-20 right-[-10%] top-1/2 -translate-y-1/2 w-[56%] rotate-[12deg]">
-                  <div className="relative aspect-[3/4] rounded-lg border border-neutral-200 overflow-hidden bg-white shadow-xl drop-shadow-lg">
+              <div className="absolute z-20 right-[2%] md:right-[-10%] top-1/2 -translate-y-1/2 w-[56%] rotate-[10deg] md:rotate-[12deg]">
+                <div className="relative aspect-[3/4] rounded-lg border border-neutral-200 overflow-hidden bg-white shadow-xl drop-shadow-lg">
                   <Image
                     src="/img/flyer2.png"
                     alt="Flyer 2"
