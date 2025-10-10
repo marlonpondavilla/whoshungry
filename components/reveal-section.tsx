@@ -2,25 +2,24 @@
 
 import React, { useEffect, useRef, useState } from "react";
 
-type RevealProps = {
-  children: React.ReactNode;
-  className?: string;
-  /** IntersectionObserver threshold (0 to 1). */
-  threshold?: number | number[];
-  /** Root margin to tweak trigger point (e.g., "0px 0px -10% 0px"). */
-  rootMargin?: string;
-  /** If true, stays visible after first reveal. */
-  once?: boolean;
-};
-
-export default function RevealSection({
-  children,
-  className = "",
-  threshold = 0.35,
-  rootMargin = "0px 0px -10% 0px",
-  once = true,
-}: RevealProps) {
-  const ref = useRef<HTMLElement | null>(null);
+/**
+ * @param {{
+ *  children: React.ReactNode,
+ *  className?: string,
+ *  threshold?: number | number[],
+ *  rootMargin?: string,
+ *  once?: boolean,
+ * }} props
+ */
+export default function RevealSection(props) {
+  const {
+    children,
+    className = "",
+    threshold = 0.35,
+    rootMargin = "0px 0px -10% 0px",
+    once = true,
+  } = props;
+  const ref = useRef(null);
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -47,9 +46,7 @@ export default function RevealSection({
 
   return (
     <section
-      ref={(node) => {
-        ref.current = (node as HTMLElement) || null;
-      }}
+      ref={ref}
       className={`transition-all duration-700 ease-out will-change-transform motion-reduce:transition-none ${
         visible
           ? "opacity-100 translate-y-0 scale-100"
