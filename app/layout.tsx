@@ -15,6 +15,21 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Who's Hungry",
   description: "A platform to find your next meal",
+  icons: {
+    icon: [
+      // Prefer PNG for modern browsers
+      { url: "/logo-icon.png", type: "image/png", sizes: "32x32" },
+      { url: "/logo-icon.png", type: "image/png", sizes: "192x192" },
+      // Optional fallback to .ico if later added to public/
+      // { url: "/favicon.ico", type: "image/x-icon", rel: "icon" },
+    ],
+    shortcut: [
+      { url: "/logo-icon.png", type: "image/png" },
+    ],
+    apple: [
+      { url: "/logo-icon.png", type: "image/png" },
+    ],
+  },
 };
 
 export default function RootLayout({
