@@ -1,12 +1,12 @@
-import Header from '@/components/header'
-import React from 'react'
+import Header from '@/components/header';
+import React from 'react';
 
 const Menu = () => {
   return (
     <div>
-        <Header />
+      <Header />
     </div>
-  )
-}
+  );
+};
 
-export default Menu
+export default Menu;

@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import { ArrowRight, Home, Menu, X } from 'lucide-react'
-import Image from 'next/image'
-import Link from 'next/link'
-import React, { useState } from 'react'
+import { ArrowRight, Home, Menu, X } from 'lucide-react';
+import Image from 'next/image';
+import Link from 'next/link';
+import React, { useState } from 'react';
 
 const Header = () => {
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(false);
   return (
     <header className="w-full border-b border-neutral-200 sticky top-0 bg-white/90 backdrop-blur supports-[backdrop-filter]:bg-white/70 z-50">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 py-2 flex items-center justify-between">
@@ -24,11 +24,31 @@ const Header = () => {
         {/* Desktop nav */}
         <nav aria-label="Main navigation" className="hidden md:block">
           <ul className="flex items-center gap-6 text-sm text-neutral-700">
-            <Link href="/" className="hover:text-red-500 font-semibold text-base hover:underline hover:scale-[1.03] transition-transform duration-200"><div className='flex justify-center items-center gap-1'><Home size={18} /> Home</div></Link>
-            <Link href="/menu" className="hover:text-red-500 font-semibold text-base hover:underline hover:scale-[1.03] transition-transform duration-200">Menu</Link>
-            <Link href="/contacts" className="hover:text-red-500 font-semibold text-base hover:underline hover:scale-[1.03] transition-transform duration-200">Contacts</Link>
-            <Link href="/test" className="group hover:text-red-500 font-semibold text-base hover:underline hover:scale-[1.03] transition-transform duration-200">
-              <div className='flex justify-center items-center'>
+            <Link
+              href="/"
+              className="hover:text-red-500 font-semibold text-base hover:underline hover:scale-[1.03] transition-transform duration-200"
+            >
+              <div className="flex justify-center items-center gap-1">
+                <Home size={18} /> Home
+              </div>
+            </Link>
+            <Link
+              href="/menu"
+              className="hover:text-red-500 font-semibold text-base hover:underline hover:scale-[1.03] transition-transform duration-200"
+            >
+              Menu
+            </Link>
+            <Link
+              href="/contacts"
+              className="hover:text-red-500 font-semibold text-base hover:underline hover:scale-[1.03] transition-transform duration-200"
+            >
+              Contacts
+            </Link>
+            <Link
+              href="/test"
+              className="group hover:text-red-500 font-semibold text-base hover:underline hover:scale-[1.03] transition-transform duration-200"
+            >
+              <div className="flex justify-center items-center">
                 How to order
                 <ArrowRight
                   size={18}
@@ -61,19 +81,41 @@ const Header = () => {
         <nav aria-label="Mobile">
           <ul className="px-4 pb-3 space-y-2 text-neutral-800">
             <li>
-              <Link href="/" className="block rounded-md px-3 py-2 hover:bg-neutral-100" onClick={() => setOpen(false)}>
-                <div className='flex items-center gap-2'><Home size={18} /> Home</div>
+              <Link
+                href="/"
+                className="block rounded-md px-3 py-2 hover:bg-neutral-100"
+                onClick={() => setOpen(false)}
+              >
+                <div className="flex items-center gap-2">
+                  <Home size={18} /> Home
+                </div>
               </Link>
             </li>
             <li>
-              <Link href="/menu" className="block rounded-md px-3 py-2 hover:bg-neutral-100" onClick={() => setOpen(false)}>Menu</Link>
+              <Link
+                href="/menu"
+                className="block rounded-md px-3 py-2 hover:bg-neutral-100"
+                onClick={() => setOpen(false)}
+              >
+                Menu
+              </Link>
             </li>
             <li>
-              <Link href="/contacts" className="block rounded-md px-3 py-2 hover:bg-neutral-100" onClick={() => setOpen(false)}>Contacts</Link>
+              <Link
+                href="/contacts"
+                className="block rounded-md px-3 py-2 hover:bg-neutral-100"
+                onClick={() => setOpen(false)}
+              >
+                Contacts
+              </Link>
             </li>
             <li>
-              <Link href="/test" className="group block rounded-md px-3 py-2 hover:bg-neutral-100" onClick={() => setOpen(false)}>
-                <div className='flex items-center'>
+              <Link
+                href="/test"
+                className="group block rounded-md px-3 py-2 hover:bg-neutral-100"
+                onClick={() => setOpen(false)}
+              >
+                <div className="flex items-center">
                   How to order
                   <ArrowRight size={16} aria-hidden className="ml-1 opacity-70" />
                 </div>
@@ -83,7 +125,7 @@ const Header = () => {
         </nav>
       </div>
     </header>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;
