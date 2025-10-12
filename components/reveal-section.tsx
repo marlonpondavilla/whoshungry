@@ -24,6 +24,12 @@ export default function RevealSection({
     const el = ref.current;
     if (!el) return;
 
+    // Fallback: if IntersectionObserver isn't available, show content
+    if (typeof window !== 'undefined' && !('IntersectionObserver' in window)) {
+      setVisible(true);
+      return;
+    }
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -44,8 +50,8 @@ export default function RevealSection({
 
   return (
     <section
-      ref={(node) => {
-        ref.current = (node as HTMLElement) || null;
+      ref={(node: HTMLElement | null) => {
+        ref.current = node;
       }}
       className={`transition-all duration-700 ease-out will-change-transform motion-reduce:transition-none ${
         visible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-3 scale-[0.99]'

@@ -1,5 +1,7 @@
-import Header from '@/components/header';
+'use client';
+
 import Image from 'next/image';
+import { useRef } from 'react';
 import {
   Carousel,
   CarouselContent,
@@ -9,8 +11,12 @@ import {
 } from '@/components/ui/carousel';
 import RevealSection from '@/components/reveal-section';
 import HeroMotion from '@/components/hero-motion';
+import Autoplay from 'embla-carousel-autoplay';
 
 export default function Home() {
+  const autoplay = useRef(
+    Autoplay({ delay: 2500, stopOnInteraction: false, stopOnMouseEnter: true })
+  );
   const slides = [
     { name: 'Bulk orders', src: '/img/meal1.png' },
     { name: 'Creamy French Fries', src: '/img/meal2.png' },
@@ -29,9 +35,6 @@ export default function Home() {
   ];
   return (
     <div className="min-h-screen text-neutral-900 flex flex-col relative isolate overflow-hidden">
-      {/* Header: logo + navigation */}
-      <Header />
-
       {/* Background vertical text: fixed, bottom-to-top, behind content. */}
       <div
         aria-hidden
@@ -42,8 +45,8 @@ export default function Home() {
         </span>
       </div>
 
-      {/* Main: two columns - left hero text, right image */}
-      <main className="flex-1 relative z-10 overflow-y-visible mt-12">
+      {/* Main content area */}
+      <div className="flex-1 relative z-10 overflow-y-visible mt-12">
         {/* Section 1: hero with first-load animations */}
         <HeroMotion />
 
@@ -62,18 +65,41 @@ export default function Home() {
             </div>
 
             <div className="mt-8">
-              <Carousel className="mx-auto max-w-2xl">
+              <Carousel
+                className="mx-auto max-w-2xl"
+                opts={{ loop: true }}
+                plugins={[autoplay.current]}
+              >
                 <CarouselContent>
                   {slides.map((slide) => (
                     <CarouselItem key={slide.name}>
                       <div className="group flex flex-col items-center gap-3">
-                        <div className="relative w-full aspect-[4/3] max-h-[320px] sm:max-h-[360px] md:max-h-[420px] rounded-xl border border-neutral-200 bg-white overflow-hidden">
+                        <div className="relative w-full aspect-[4/3] max-h-[320px] sm:max-h-[360px] md:max-h-[420px] rounded-xl border border-neutral-200 overflow-hidden bg-neutral-50">
+                          {/* vertical textured strips on both sides */}
+                          <div
+                            aria-hidden
+                            className="absolute left-0 top-0 bottom-0 w-[6px] sm:w-[8px] md:w-[10px] pointer-events-none"
+                            style={{
+                              backgroundImage:
+                                'repeating-linear-gradient(to bottom, var(--brand-red) 0 14px, transparent 14px 28px)',
+                              filter: 'drop-shadow(0 0 1px rgba(0,0,0,0.15))',
+                            }}
+                          />
+                          <div
+                            aria-hidden
+                            className="absolute right-0 top-0 bottom-0 w-[6px] sm:w-[8px] md:w-[10px] pointer-events-none"
+                            style={{
+                              backgroundImage:
+                                'repeating-linear-gradient(to bottom, var(--brand-red) 0 14px, transparent 14px 28px)',
+                              filter: 'drop-shadow(0 0 1px rgba(0,0,0,0.15))',
+                            }}
+                          />
                           <Image
                             src={slide.src}
                             alt={slide.name}
                             fill
                             sizes="(min-width:1280px) 640px, (min-width:1024px) 560px, (min-width:768px) 520px, 90vw"
-                            className="object-contain transition-transform duration-300 ease-out will-change-transform group-hover:scale-[1.02]"
+                            className="relative z-[1] object-contain transition-transform duration-300 ease-out will-change-transform group-hover:scale-[1.02]"
                             priority={false}
                           />
                         </div>
@@ -133,15 +159,7 @@ export default function Home() {
             ))}
           </div>
         </RevealSection>
-      </main>
-
-      {/* Footer (minimal) */}
-      <footer className="w-full py-6 text-center text-sm text-neutral-500 border-t border-neutral-200 tracking-wide italic">
-        <p className="hover:text-neutral-700 underline">
-          Open Daily 9am-10pm 300A Lovely Street, Canalate, Malolos, Bulacan. Pick up or Deliver
-          thru FMRG
-        </p>
-      </footer>
+      </div>
     </div>
   );
 }
