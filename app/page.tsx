@@ -55,9 +55,7 @@ export default function Home() {
           {/* Themed panel with subtle accent */}
           <div className="relative rounded-2xl border border-neutral-200 bg-white/70 backdrop-blur-sm shadow-sm p-6 sm:p-8 overflow-hidden">
             <div className="max-w-3xl">
-              <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight">
-                Cravings Start Here
-              </h2>
+              <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight">For Bulk Orders</h2>
               <div className="mt-2 h-1 w-16 rounded-full bg-red-500" />
               <p className="mt-3 text-neutral-600">
                 Discover our mouthwatering comfort food made with love.

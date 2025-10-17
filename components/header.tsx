@@ -19,7 +19,7 @@ const Header = () => {
   const activeHome = pathname === '/';
   const activeMenu = pathname.startsWith('/menu');
   const activeContacts = pathname.startsWith('/contacts');
-  const activeTest = pathname.startsWith('/test');
+  const activeHowTo = pathname.startsWith('/how-to-order');
   const desktopLinkBase =
     'font-semibold text-base hover:underline hover:scale-[1.03] transition-transform duration-200';
   const mobileLinkBase = 'block rounded-md px-3 py-2 hover:bg-neutral-100';
@@ -64,9 +64,9 @@ const Header = () => {
               Contacts
             </Link>
             <Link
-              href="/test"
-              aria-current={activeTest ? 'page' : undefined}
-              className={`group ${desktopLinkBase} ${activeTest ? 'text-red-500 underline' : 'text-neutral-700'}`}
+              href="/how-to-order"
+              aria-current={activeHowTo ? 'page' : undefined}
+              className={`group ${desktopLinkBase} ${activeHowTo ? 'text-red-500 underline' : 'text-neutral-700'}`}
             >
               <div className="flex justify-center items-center">
                 How to order
@@ -134,9 +134,9 @@ const Header = () => {
             </li>
             <li>
               <Link
-                href="/test"
-                aria-current={activeTest ? 'page' : undefined}
-                className={`group ${mobileLinkBase} ${activeTest ? 'text-red-500' : ''}`}
+                href="/how-to-order"
+                aria-current={activeHowTo ? 'page' : undefined}
+                className={`group ${mobileLinkBase} ${activeHowTo ? 'text-red-500' : ''}`}
                 onClick={() => setOpen(false)}
               >
                 <div className="flex items-center">

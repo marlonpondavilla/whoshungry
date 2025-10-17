@@ -77,7 +77,7 @@ export default function ContactsPage() {
             </div>
             <div className="flex-1 min-w-0">
               <div className="font-medium text-neutral-800">Messenger</div>
-              <div className="truncate text-sm text-neutral-600">Marvin Reyes</div>
+              <div className="truncate text-sm text-neutral-600">Patrick Reyes</div>
             </div>
           </div>
         </div>
