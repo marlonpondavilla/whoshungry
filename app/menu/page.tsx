@@ -12,7 +12,7 @@ const items: MenuItem[] = [
   { name: 'Creamy Pork Sisig', src: '/img/meal5.png', price: '₱139', badge: 'New' },
   { name: 'Crispy Sisig', src: '/img/meal6.png', price: '₱129' },
   { name: 'Pork Shanghai', src: '/img/meal4.png', price: '₱119', badge: 'Best Seller' },
-  { name: 'Kalamares', src: '/img/meal3.png', price: '₱109' },
+  { name: 'Kalamares', src: '/img/meal3.png', price: '₱109', badge: 'Best Seller' },
   { name: 'Creamy French Fries', src: '/img/meal2.png', price: '₱79' },
   { name: 'Bulk orders', src: '/img/meal1.png', price: 'Message us' },
 ];
