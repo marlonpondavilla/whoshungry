@@ -3,6 +3,7 @@
 import { Button } from '@/components/ui/button';
 import { robotoSlab } from '@/fonts/custom-fonts';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
 export default function HeroMotion() {
@@ -40,10 +41,9 @@ export default function HeroMotion() {
           }`}
           style={{ transitionDelay: mounted ? '200ms' : '0ms' }}
         >
-          <Button className="rounded-full bg-red-500 cursor-pointer">See Menu</Button>
-          <Button variant={'outline'} className="rounded-full cursor-pointer">
-            Services
-          </Button>
+          <Link href="/menu">
+            <Button className="rounded-full bg-red-500 cursor-pointer">See Menu</Button>
+          </Link>
         </div>
       </div>
 

@@ -21,12 +21,12 @@ const Header = () => {
   const activeContacts = pathname.startsWith('/contacts');
   const activeHowTo = pathname.startsWith('/how-to-order');
   const desktopLinkBase =
-    'font-semibold text-base hover:underline hover:scale-[1.03] transition-transform duration-200';
+    'font-semibold text-base relative after:absolute after:bottom-0 after:left-0 after:h-[3px] after:w-0 after:bg-red-500 after:transition-all after:duration-300 hover:after:w-full transition-transform duration-200';
   const mobileLinkBase = 'block rounded-md px-3 py-2 hover:bg-neutral-100';
   return (
     <header className="w-full border-b border-neutral-200 sticky top-0 bg-white/90 backdrop-blur supports-[backdrop-filter]:bg-white/70 z-50">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 py-2 flex items-center justify-between">
-        <div className="flex items-center gap-3">
+        <Link href="/" className="flex items-center gap-3 transition-opacity hover:opacity-80">
           <Image
             src="/img/logo.png"
             alt="Who's Hungry Logo"
@@ -35,7 +35,7 @@ const Header = () => {
             priority
             className="h-14 w-auto sm:h-16 md:h-28"
           />
-        </div>
+        </Link>
 
         {/* Desktop nav */}
         <nav aria-label="Main navigation" className="hidden md:block">
@@ -43,7 +43,7 @@ const Header = () => {
             <Link
               href="/"
               aria-current={activeHome ? 'page' : undefined}
-              className={`${desktopLinkBase} ${activeHome ? 'text-red-500 underline' : 'text-neutral-700'}`}
+              className={`${desktopLinkBase} ${activeHome ? 'text-red-500 after:!w-full' : 'text-neutral-700'}`}
             >
               <div className="flex justify-center items-center gap-1">
                 <Home size={18} /> Home
@@ -52,21 +52,21 @@ const Header = () => {
             <Link
               href="/menu"
               aria-current={activeMenu ? 'page' : undefined}
-              className={`${desktopLinkBase} ${activeMenu ? 'text-red-500 underline' : 'text-neutral-700'}`}
+              className={`${desktopLinkBase} ${activeMenu ? 'text-red-500 after:!w-full' : 'text-neutral-700'}`}
             >
               Menu
             </Link>
             <Link
               href="/contacts"
               aria-current={activeContacts ? 'page' : undefined}
-              className={`${desktopLinkBase} ${activeContacts ? 'text-red-500 underline' : 'text-neutral-700'}`}
+              className={`${desktopLinkBase} ${activeContacts ? 'text-red-500 after:!w-full' : 'text-neutral-700'}`}
             >
               Contacts
             </Link>
             <Link
               href="/how-to-order"
               aria-current={activeHowTo ? 'page' : undefined}
-              className={`group ${desktopLinkBase} ${activeHowTo ? 'text-red-500 underline' : 'text-neutral-700'}`}
+              className={`group ${desktopLinkBase} ${activeHowTo ? 'text-red-500 after:!w-full' : 'text-neutral-700'}`}
             >
               <div className="flex justify-center items-center">
                 How to order

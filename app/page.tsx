@@ -149,9 +149,6 @@ export default function Home() {
                 </div>
                 <div className="px-4 py-3 flex items-center justify-between">
                   <span className="font-medium text-neutral-800">{item.name}</span>
-                  <span className="text-sm text-red-500 opacity-0 translate-x-1 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0">
-                    View
-                  </span>
                 </div>
               </div>
             ))}
